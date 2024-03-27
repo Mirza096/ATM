@@ -24,9 +24,9 @@ if (pinAnswer.pin === myPin ){
             }
         ]
     );
-    console.log(operationAns);
-    if(operationAns.operation === "withdraw" && operationAns.operation <= myBalance){
+    
         let amountAns = await inquirer.prompt(
+            
             [
                 {
                     name: "amount",
@@ -35,7 +35,10 @@ if (pinAnswer.pin === myPin ){
                 }
             ]
         );
+        // withdraw block
+    if(operationAns.operation === "withdraw" && operationAns.operation <= myBalance){
         // =, -=, +=
+        console.log(operationAns);
         myBalance -= amountAns.amount;
         console.log("your remaining balance is: "+ myBalance);
 
