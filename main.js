@@ -17,16 +17,17 @@ if (pinAnswer.pin === myPin) {
             choices: ["withdraw", "balance check", "cancel"]
         }
     ]);
-    console.log(operationAns);
+    let amountAns = await inquirer.prompt([
+        {
+            name: "amount",
+            message: "enter your amount",
+            type: "number"
+        }
+    ]);
+    // withdraw block
     if (operationAns.operation === "withdraw" && operationAns.operation <= myBalance) {
-        let amountAns = await inquirer.prompt([
-            {
-                name: "amount",
-                message: "enter your amount",
-                type: "number"
-            }
-        ]);
         // =, -=, +=
+        console.log(operationAns);
         myBalance -= amountAns.amount;
         console.log("your remaining balance is: " + myBalance);
     }
