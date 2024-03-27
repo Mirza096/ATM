@@ -9,7 +9,6 @@ let pinAnswer = await inquirer.prompt(
             message: "enter your pin",
             type: "number"
 }
-    
 ]
 );
 if (pinAnswer.pin === myPin ){
@@ -21,12 +20,12 @@ if (pinAnswer.pin === myPin ){
                 name: "operation",
                 message: "please select options",
                 type: "list",
-                choices: ["withdraw", "balance check", "cancell"]
+                choices: ["withdraw", "balance check", "cancel"]
             }
         ]
     );
     console.log(operationAns);
-    if(operationAns.operation === "withdraw"){
+    if(operationAns.operation === "withdraw" && operationAns.operation <= myBalance){
         let amountAns = await inquirer.prompt(
             [
                 {
@@ -42,6 +41,12 @@ if (pinAnswer.pin === myPin ){
 
     } else if(operationAns.operation === "balance check"){
         console.log(myBalance); 
+
+    } else if(operationAns.operation > myBalance){
+        console.log("you have insufficient balance");
+        
+    } else if(operationAns.operation === "cancel"){
+        console.log("take out your card");
     }
 else {
     console.log("incorrect pin numbber");
