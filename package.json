@@ -1,6 +1,6 @@
 {
   "name": "msbkhi-atm",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "\"# ATM\"",
   "main": "main.js",
   "type": "module",
